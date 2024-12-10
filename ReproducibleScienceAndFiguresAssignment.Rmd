@@ -262,7 +262,7 @@ In conclusion, we find that flipper length is a strong predictor of body mass ac
 
 ### a) My GitHub
 
-*GitHub link:*
+*GitHub link:* <https://github.com/dinosaur84/ReproducibleScienceAndFigures>
 
 ### b) Share your repo with a partner, download, and try to run their data pipeline.
 
