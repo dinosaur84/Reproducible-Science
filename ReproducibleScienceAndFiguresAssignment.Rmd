@@ -1,6 +1,6 @@
 ---
 title: 'Computer Assignment: Reproducible Science and Figures'
-author: "Candidate 1076523"
+author: "Candidate 1076523, dinosaur 84"
 date: "2024-12-08"
 output:
   html_document: default
@@ -20,6 +20,7 @@ library(tidyverse)
 library(palmerpenguins)
 library(janitor)
 library(here)
+library(ggplot2)
 
 
 # Constructing a poor bar graph
@@ -64,8 +65,6 @@ library(here) # Finding project files based on working directory
 library(janitor)
 library(dplyr)
 library(broom) # Constructing a results table
-library(ragg)
-library(svglite)
 ```
 
 1.  **Loading in and cleaning the data**
@@ -239,7 +238,7 @@ Further work could expand on this analysis by investigating whether the relation
 
 A final intriguing avenue for further work is understanding the stronger relationship between flipper size and body mass in the Gentoo penguins. Given that their flippers are longer per unit of body mass, this could be an adaptation to help them swim faster but this requires testing.
 
-In conclusion, we find that flipper length is a strong predictor of body mass across Adelie, Chinstrap, and Gentoo penguins, but that this relationship is stronger in Gentoo penguins. This has potential applications for penguin monitoring but also plenty of avenues for future research.
+In conclusion, we find that **flipper length is a strong predictor of body mass** across Adelie, Chinstrap, and Gentoo penguins, but that this relationship is stronger in Gentoo penguins. This has potential applications for penguin monitoring but also plenty of avenues for future research.
 
 ### References
 
