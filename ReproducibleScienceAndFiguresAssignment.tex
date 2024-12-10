@@ -1,0 +1,779 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Computer Assignment: Reproducible Science and Figures},
+  pdfauthor={Candidate 1076523},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Computer Assignment: Reproducible Science and Figures}
+\author{Candidate 1076523}
+\date{2024-12-08}
+
+\begin{document}
+\maketitle
+
+\section{Computer Assignment: Reproducible Science and Figures
+(Michaelmas Term,
+2024)}\label{computer-assignment-reproducible-science-and-figures-michaelmas-term-2024}
+
+\subsection{\texorpdfstring{\ul{Question 1: Data visualization for
+science
+communication}}{Question 1: Data visualization for science communication}}\label{question-1-data-visualization-for-science-communication}
+
+\subsubsection{a) Provide your figure
+here:}\label{a-provide-your-figure-here}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v dplyr     1.1.4     v readr     2.1.5
+## v forcats   1.0.0     v stringr   1.5.1
+## v ggplot2   3.5.1     v tibble    3.2.1
+## v lubridate 1.9.3     v tidyr     1.3.1
+## v purrr     1.0.2     
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+## 
+## Attaching package: 'janitor'
+## 
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+## 
+## 
+## here() starts at C:/Users/joann/OneDrive/Documents/Computer assignments/Reproducible Science and Figures/Reproducible Science and Figures
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing non-finite outside the scale range
+## (`stat_summary()`).
+\end{verbatim}
+
+\includegraphics{ReproducibleScienceAndFiguresAssignment_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\subsubsection{b) Write about how your design choices mislead the reader
+about the underlying
+data:}\label{b-write-about-how-your-design-choices-mislead-the-reader-about-the-underlying-data}
+
+Data visualization for effective science communication should be based
+on the following principles: showing the data, making patterns easy to
+see, honestly representing magnitudes, and clearly drawing graphical
+elements. (Whitlock and Schluter, 2020) The figure produced above
+misleads the reader by violating each of these principles.
+
+Firstly, it hides the data by showing only a summary: the mean body
+mass. This obscures variation within the data and is intended to show
+categorical variables, rather than continuous ones. This would instead
+be better represented with a box plot.
+
+Secondly, magnitudes have been dishonestly represented. The X-axis does
+not start at 0, but instead at 3000g to exaggerate differences in body
+mass between sexes. This is worsened by the absence of units on the
+X-axis label, which should include the units, grams.
+
+Thirdly, patterns are obscured. This is achieved by refraining from
+removing data points where sex is not specified (NA, which also
+contributes to the error seen above). This makes it more difficult for
+the reader to focus on relationships between sex and body mass.
+Representing this using a bar graph is a poor choice and instead, a
+scatter graph could better illustrate differences in body mass in the
+penguins over time by sex.
+
+Patterns are also obscured by swapping the axes around - this makes it
+much more difficult to compare patterns. This makes it much more
+difficult to compare the patterns in the data, including patterns among
+years, than it would have been if sex had been on the X axis.
+
+Finally, graphical elements have not been drawn clearly. There is low
+contrast between the background of the graph and each of the bars
+through the use of a dark theme and dark bars with reduced opacity. This
+is also achieved by using only the colour function, rather than the fill
+function, to colour the bars by sex. The key also remains messy and
+difficult to interpret because of the lack of contrast.
+
+Each of these design choices means that the graph provides a misleading
+representation of the Palmer Penguins data and one that is difficult to
+reproduce because the code has not been provided.
+
+\emph{References}
+
+Whitlock \& Schluter (2020), `The analysis of biological data', Third
+Edition, Macmillan International Higher Education.
+
+\subsection{\texorpdfstring{\ul{Question 2: Data
+pipeline}}{Question 2: Data pipeline}}\label{question-2-data-pipeline}
+
+\subsubsection{Introduction}\label{introduction}
+
+\textbf{Preliminary step:} Loading in packages necessary for this data
+pipeline
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Loading in packages necessary for this analysis}
+\FunctionTok{library}\NormalTok{(palmerpenguins) }\CommentTok{\# Source of data}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(ggplot2) }\CommentTok{\# Allows plotting of graphs}
+\FunctionTok{library}\NormalTok{(here) }\CommentTok{\# Finding project files based on working directory}
+\FunctionTok{library}\NormalTok{(janitor)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(broom) }\CommentTok{\# Constructing a results table}
+\FunctionTok{library}\NormalTok{(ragg)}
+\FunctionTok{library}\NormalTok{(svglite)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Loading in and cleaning the data}
+\end{enumerate}
+
+This analysis sources data collected in the Palmer Archipelago in
+Antarctica from the palmerpenguins package to investigate the
+relationship between flipper length and body mass in penguins of three
+species: Gentoo, Adelie, and Chinstrap.
+
+To start the analysis, the data is loaded in and cleaned. For
+reproducibility, the data is accessible in both its raw and cleaned
+forms. In addition, the cleaning process, involving a data pipeline, is
+shown below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Sourcing the cleaning script, which contains the functions needed to clean the data. This is on a separate script for brevity and enhanced reproducibility.}
+\FunctionTok{source}\NormalTok{(}\FunctionTok{here}\NormalTok{(}\StringTok{"functions"}\NormalTok{, }\StringTok{"cleaning.R"}\NormalTok{))}
+
+\CommentTok{\# Preserving the raw data by saving it as a .csv file in the data file to make the cleaning process more reproducible.}
+\FunctionTok{write\_csv}\NormalTok{(penguins\_raw, }\FunctionTok{here}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"penguins\_raw.csv"}\NormalTok{))}
+
+\CommentTok{\# Load in the raw data, column types are not shown to reduce clutter}
+\NormalTok{penguins\_raw }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\FunctionTok{here}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"penguins\_raw.csv"}\NormalTok{), }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+
+\CommentTok{\# A pipeline to clean the raw data, using functions constructed in cleaning.R. Note that the remove\_NA function has not been added to this pipeline so that when the data is subsetted for analysis, NAs are removed only from columns of interest.}
+\NormalTok{penguins\_clean }\OtherTok{\textless{}{-}}\NormalTok{ penguins\_raw }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{clean\_column\_names}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{remove\_columns}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"comments"}\NormalTok{, }\StringTok{"delta"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{shorten\_species}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{remove\_empty\_columns\_rows}\NormalTok{()}
+
+\CommentTok{\# Checking output from the cleaning process}
+\FunctionTok{colnames}\NormalTok{(penguins\_clean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "study_name"        "sample_number"     "species"          
+##  [4] "region"            "island"            "stage"            
+##  [7] "individual_id"     "clutch_completion" "date_egg"         
+## [10] "culmen_length_mm"  "culmen_depth_mm"   "flipper_length_mm"
+## [13] "body_mass_g"       "sex"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Saving the clean data using the here library to enable scrutiny and viewing}
+\FunctionTok{write\_csv}\NormalTok{(penguins\_clean, }\FunctionTok{here}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"penguins\_clean.csv"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  \textbf{Creating an exploratory figure}
+\end{enumerate}
+
+An exploratory figure is designed to show the reader raw data,
+demonstrating its distribution. This enables checking during the
+analysis to determine whether the data appears as expected. It also
+allows the construction of hypotheses that can be analysed with
+statistical methods.
+
+The exploratory scatterplot below shows the relationship between flipper
+length and body mass across the three penguin species in the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Removing NAs from the data columns we are using (body\_mass\_g and flipper\_length\_mm) to construct the figure. Here, the pipe is used to subset values rather than overwriting.}
+\NormalTok{penguins\_flippers\_bodymass }\OtherTok{\textless{}{-}}\NormalTok{ penguins\_clean }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(species, flipper\_length\_mm, body\_mass\_g) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{drop\_na}\NormalTok{()}
+
+\CommentTok{\# To enable viewing and scrutiny of the dataset used to construct the graphs, this data (with NAs omitted) is written as a .csv file.}
+
+\FunctionTok{write\_csv}\NormalTok{(penguins\_flippers\_bodymass, }
+          \FunctionTok{here}\NormalTok{(}\StringTok{"data"}\NormalTok{, }\StringTok{"penguins\_flippers\_bodymass.csv"}\NormalTok{))}
+
+\CommentTok{\# Colours with high contrast are defined for the species. This helps make the figure more accessible for colour blind users and by making this character, consistency among plots later in the analysis is made easier, helping the reader to spot patterns.}
+\NormalTok{species\_colours }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Adelie"} \OtherTok{=} \StringTok{"darkorange"}\NormalTok{, }
+                    \StringTok{"Chinstrap"} \OtherTok{=} \StringTok{"purple"}\NormalTok{, }
+                    \StringTok{"Gentoo"} \OtherTok{=} \StringTok{"cyan4"}\NormalTok{)}
+
+\CommentTok{\# Constructing an exploratory scatterplot to visualise the relationship between flipper length and body mass}
+\NormalTok{exploratory\_scatterplot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}
+  \AttributeTok{data =}\NormalTok{ penguins\_flippers\_bodymass, }
+  \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ flipper\_length\_mm, }
+      \AttributeTok{y =}\NormalTok{ body\_mass\_g)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}
+    \FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ species),}
+    \AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{,}
+    \AttributeTok{show.legend =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} 
+         \StringTok{"Figure 1: Scatterplot showing the relationship between }\SpecialCharTok{\textbackslash{}n}\StringTok{flipper length and body mass"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Flipper length (mm)"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Body mass (g)"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# Labels the graph for clarity}
+  \FunctionTok{scale\_colour\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ species\_colours) }\SpecialCharTok{+} \CommentTok{\# Colours points by species}
+  \FunctionTok{theme\_bw}\NormalTok{() }\CommentTok{\# Theme increases contrast to facilitate reading}
+
+\CommentTok{\# View the exploratory figure to visualise the relationship between body mass and flipper length}
+\NormalTok{exploratory\_scatterplot}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ReproducibleScienceAndFiguresAssignment_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\subsubsection{Hypothesis}\label{hypothesis}
+
+After visualising the data, I put forward a hypothesis to test:
+\emph{Penguins with a larger body mass tend to have longer flippers,
+however, this relationship varies across the three species.}
+
+Body size, generally measured through estimates of body mass, is an
+important biological property. (Campione and Evans, 2012) It has
+physiological, morphological, and ecological influence on an organism,
+including in penguins. It can also be used to learn about extinct
+species or forms. For example, in paleobiology, single bones like the
+tarsometatarsi or femora have been used to estimate the body size of
+extinct Antarctic penguins because this is often the only surviving
+source of information on these individuals. (Jadwiszczak, 2001;
+Jadwiszczak and Mors, 2011)
+
+It is therefore interesting to investigate whether flipper length is
+predictive of body mass in these penguins, and whether this relationship
+differs among the three species.
+
+\subsubsection{Statistical methods}\label{statistical-methods}
+
+To test these hypotheses, I begin with a hypothesis test: Pearson's
+product-moment correlation. The correlation test measures the linear
+relationship between variables and was chosen to understand the strength
+and direction of the relationship (and to check its linearity) before
+constructing a model.
+
+A strong positive correlation coefficient is indicated by a value of 1,
+a strong negative correlation coefficient is indicated by a value of -1.
+Given the shape of the exploratory plot, we expect a value close to 1,
+indicating a positive correlation between body mass and flipper length.
+
+The null hypothesis tested here is: there is no correlation between
+flipper length and the body mass of a penguin.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Performing a correlation test to determine strength and direction of relationship between body mass and flipper length }
+\FunctionTok{cor.test}\NormalTok{(penguins\_flippers\_bodymass}\SpecialCharTok{$}\NormalTok{flipper\_length\_mm, penguins\_flippers\_bodymass}\SpecialCharTok{$}\NormalTok{body\_mass\_g, }\AttributeTok{method =} \StringTok{"pearson"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's product-moment correlation
+## 
+## data:  penguins_flippers_bodymass$flipper_length_mm and penguins_flippers_bodymass$body_mass_g
+## t = 32.722, df = 340, p-value < 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.843041 0.894599
+## sample estimates:
+##       cor 
+## 0.8712018
+\end{verbatim}
+
+From the correlation test, it appears that there is a strong, positive
+correlation between flipper length and the body mass of a penguin.
+However, more detailed information than this test can provide is
+required - correlation is not causation.
+
+How the relationship between flipper length and body mass differs across
+the three penguin species is tested using a linear regression analysis.
+The assumptions necessary to perform this analysis are tested using a
+single panel of four diagnostic plots for the reader's ease of viewing.
+These assumptions include linearity and equality of variance (shown by
+residuals vs.~fitted plot), normal distribution of data (shown by Q-Q
+plot), homoscedasticity (shown by scale-location). The most influential
+observations within the model are shown by the residuals vs.~leverage
+plot.
+
+\begin{verbatim}
+            -501.359   1523.459  -0.329  0.74229    
+speciesGentoo                      -4251.444   1427.332  -2.979  0.00311 ** 
+flipper_length_mm:speciesChinstrap     1.742      7.856   0.222  0.82467    
+flipper_length_mm:speciesGentoo       21.791      6.941   3.139  0.00184 ** 
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Construct a linear regression model using the lm() function from base R}
+
+\NormalTok{lm\_bodymass\_flippers }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(body\_mass\_g }\SpecialCharTok{\textasciitilde{}}\NormalTok{ flipper\_length\_mm }\SpecialCharTok{*}\NormalTok{ species, }\AttributeTok{data =}\NormalTok{ penguins\_flippers\_bodymass)}
+
+\CommentTok{\# View the results of the model}
+\FunctionTok{summary}\NormalTok{(lm\_bodymass\_flippers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = body_mass_g ~ flipper_length_mm * species, data = penguins_flippers_bodymass)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -911.18 -251.93  -31.77  197.82 1144.81 
+## 
+## Coefficients:
+##                                     Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)                        -2535.837    879.468  -2.883  0.00419 ** 
+## flipper_length_mm                     32.832      4.627   7.095 7.69e-12 ***
+## speciesChinstrap                    -501.359   1523.459  -0.329  0.74229    
+## speciesGentoo                      -4251.444   1427.332  -2.979  0.00311 ** 
+## flipper_length_mm:speciesChinstrap     1.742      7.856   0.222  0.82467    
+## flipper_length_mm:speciesGentoo       21.791      6.941   3.139  0.00184 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 370.6 on 336 degrees of freedom
+## Multiple R-squared:  0.7896, Adjusted R-squared:  0.7864 
+## F-statistic: 252.2 on 5 and 336 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# A 2 by 2 grid is set up to display four diagnostic plots on one page }
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{)) }
+\CommentTok{\# The four diagnostic plots are produced: residuals vs. fitted (1), normal Q{-}Q (2), scale{-}location (3), and residuals vs. leverage (4).}
+\FunctionTok{plot}\NormalTok{(lm\_bodymass\_flippers)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{ReproducibleScienceAndFiguresAssignment_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+The four diagnostic plots above suggest that the assumptions needed to
+perform the linear regression analysis on this dataset have been met.
+The results of the linear regression model are shown and discussed
+below.
+
+\subsubsection{Results and discussion}\label{results-and-discussion}
+
+The results figure and supplementary below demonstrates the use of
+linear regression above:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Plotting the results of the linear regression model by species}
+
+\NormalTok{lm\_results\_figure }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(penguins\_flippers\_bodymass, }
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ flipper\_length\_mm, }
+           \AttributeTok{y =}\NormalTok{ body\_mass\_g,}
+           \AttributeTok{color =}\NormalTok{ species)) }\SpecialCharTok{+} \CommentTok{\# Plots data, colourd by species for clarity}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{,}
+              \AttributeTok{se =} \ConstantTok{TRUE}\NormalTok{,}
+              \AttributeTok{color =} \StringTok{"black"}\NormalTok{,}
+              \AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# Fits a regression line and shows standard error}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{species) }\SpecialCharTok{+} \CommentTok{\# For easy comparison of relationship by species}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Figure 2: Regression lines showing the relationship }\SpecialCharTok{\textbackslash{}n}\StringTok{between flipper length and body mass by species"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Flipper length (mm)"}\NormalTok{, }
+       \AttributeTok{y =} \StringTok{"Body mass (g)"}\NormalTok{) }\SpecialCharTok{+} \CommentTok{\# Axis labels for clarity}
+  \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+} \CommentTok{\# For clarity, provides high contrast}
+  \FunctionTok{scale\_colour\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ species\_colours) }\CommentTok{\# Consistent colours across graphs}
+
+\CommentTok{\# Show the results figure}
+\NormalTok{lm\_results\_figure}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula = 'y ~ x'
+\end{verbatim}
+
+\includegraphics{ReproducibleScienceAndFiguresAssignment_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Supplementing the plot with a cleaner results table}
+\NormalTok{results\_table }\OtherTok{\textless{}{-}} \FunctionTok{tidy}\NormalTok{(lm\_bodymass\_flippers)}
+\CommentTok{\# View the results table}
+\NormalTok{results\_table}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##   term                               estimate std.error statistic  p.value
+##   <chr>                                 <dbl>     <dbl>     <dbl>    <dbl>
+## 1 (Intercept)                        -2536.      879.      -2.88  4.19e- 3
+## 2 flipper_length_mm                     32.8       4.63     7.10  7.69e-12
+## 3 speciesChinstrap                    -501.     1523.      -0.329 7.42e- 1
+## 4 speciesGentoo                      -4251.     1427.      -2.98  3.11e- 3
+## 5 flipper_length_mm:speciesChinstrap     1.74      7.86     0.222 8.25e- 1
+## 6 flipper_length_mm:speciesGentoo       21.8       6.94     3.14  1.84e- 3
+\end{verbatim}
+
+These results suggest that a longer flipper length is predictive of
+greater body mass across all three species. This is indicated by the
+adjusted R-squared, 0.7864 - 78.64\% of variability in body mass is
+explained by flipper length and species. In addition, the F-statistic
+and its low P-value suggest that the model is significant in explaining
+this variation.
+
+The model suggests that there is no significant difference in this
+relationship between the Chinstrap and Adelie penguins. However, in the
+Gentoo penguins, the relationship between flipper length and body mass
+is stronger than in the Chinstrap and Adelie penguins - they have longer
+flippers per unit body mass. Therefore, we see differences between the
+species and this is reflected in the results figure above.
+
+\subsubsection{Conclusions}\label{conclusions}
+
+From this analysis, it is concluded that \textbf{flipper length is a
+strong predictor of body mass} across these three species of Antarctic
+penguins (Adelie, Chinstrap, and Gentoo), as hypothesised. However, in
+the Gentoo penguins, the relationship between flipper length and body
+mass is stronger than in the Adelie or Chinstrap penguins - they have
+longer flippers per unit of body mass. These conclusions are intriguing
+and provide a range of future avenues for further study.
+
+This relationship has promising applications for studying these
+penguins. For example, where body mass cannot be measured, flipper
+length could be determined from images of penguins and then used to
+estimate body mass, in order to answer interesting questions like how
+the body mass of penguins is changing over time, such as in response to
+climate change. This could be useful to enable remote monitoring and
+increase the ease of gathering data without disrupting the penguins and
+avoiding any potential distress that could arise by handling them.
+(Maise et al.~2014)
+
+However, this analysis has a number of limitations. Firstly, there is
+the potential for pseudo-replication because multiple measurements have
+been taken from the same individuals across years. Future analyses
+should control for this to prevent related data points being treated as
+independent, potentially skewing the data. A further limitation is that
+the model does not examine how this relationship differs among sexes,
+though sexual dimorphism has been observed in these penguins and
+previous work has looked into this. (Gorman et al.~2014)
+
+Further work could expand on this analysis by investigating whether the
+relationship between flipper length and body mass differs among sexes,
+as well as whether other variables within the dataset, like culmen
+length and depth can be used to predict body mass. Further work could
+also investigate whether the length of flipper bones predict body mass
+in these species to study the evolution of the Adelie, Chinstrap, and
+Gentoo penguins and their flippers as has been done in other species
+using the humerus (for example: Ksepka, 2023).
+
+A final intriguing avenue for further work is understanding the stronger
+relationship between flipper size and body mass in the Gentoo penguins.
+Given that their flippers are longer per unit of body mass, this could
+be an adaptation to help them swim faster but this requires testing.
+
+In conclusion, we find that flipper length is a strong predictor of body
+mass across Adelie, Chinstrap, and Gentoo penguins, but that this
+relationship is stronger in Gentoo penguins. This has potential
+applications for penguin monitoring but also plenty of avenues for
+future research.
+
+\subsubsection{References}\label{references}
+
+\begin{itemize}
+\item
+  Campione and Evans, (2012), `A universal scaling relationship between
+  body mass and proximal limb bone dimensions in quadrupedal terrestrial
+  tetrapods' \emph{BMC Biol} \textbf{10}, 60,
+  \url{https://doi.org/10.1186/1741-7007-10-60}
+\item
+  Gorman et al.~(2014), `Ecological Sexual Dimorphism and Environmental
+  Variability within a Community of Antarctic Penguins (Genus
+  \emph{Pygoscelis})', PLoS One,
+  \url{https://doi.org/10.1371/journal.pone.0090081}
+\item
+  Jadwiszczak, (2001), `Body size of Eocene Antarctic penguins', Polish
+  Polar Research, 22, 2, 147-158.
+\item
+  Jadwiszczak and Mors, (2011), `Aspects of diversity in early Antarctic
+  penguins', Acta Palaeontologica Polonica, 56(2), 269-277,
+  \url{http://dx.doi.org/10.4202/app.2009.1107}
+\item
+  Ksepka, (2023), `Largest-known fossil penguin provides insight into
+  the early evolution of sphenisciform body size and flipper anatomy',
+  Journal of Paleontology, 97(2), pp.~434--453.
+  \url{doi:10.1017/jpa.2022.88}.
+\item
+  Meise et al.~(2014), `Applicability of Single-Camera Photogrammetry to
+  Determine Body Dimensions of Pinnipeds: Galapagos Sea Lions as an
+  Example',PLoS One, 2;9(7),
+  \url{https://doi.org/10.1371/journal.pone.0101197}
+\item
+  Whitlock \& Schluter (2020), `The analysis of biological data', Third
+  Edition, Macmillan International Higher Education.
+\end{itemize}
+
+\subsection{\texorpdfstring{\ul{Question 3: Open
+Science}}{Question 3: Open Science}}\label{question-3-open-science}
+
+\subsubsection{a) My GitHub}\label{a-my-github}
+
+\emph{GitHub link:}
+
+\subsubsection{b) Share your repo with a partner, download, and try to
+run their data
+pipeline.}\label{b-share-your-repo-with-a-partner-download-and-try-to-run-their-data-pipeline.}
+
+\emph{Partner's GitHub link:}
+
+\subsubsection{c) Reflect on your experience running their code.
+(300-500
+words)}\label{c-reflect-on-your-experience-running-their-code.-300-500-words}
+
+\begin{itemize}
+\item
+  \emph{What elements of your partner's code helped you to understand
+  and run their data pipeline?}
+\item
+  \emph{Did it run? Did you need to fix anything?}
+\item
+  \emph{What suggestions would you make for improving their code to make
+  it more understandable or reproducible, and why?}
+\item
+  \emph{If you needed to alter your partner's figure using their code,
+  do you think that would be easy or difficult, and why?}
+\end{itemize}
+
+\subsubsection{d) Reflect on your own code based on your experience with
+your partner's code and their review of yours. (300-500
+words)}\label{d-reflect-on-your-own-code-based-on-your-experience-with-your-partners-code-and-their-review-of-yours.-300-500-words}
+
+\begin{itemize}
+\item
+  \emph{What improvements did they suggest, and do you agree?}
+\item
+  \emph{What did you learn about writing code for other people?}
+\end{itemize}
+
+\subsubsection{e) What are the main barriers for scientists to share
+their data and code, and what could be done to overcome
+them?}\label{e-what-are-the-main-barriers-for-scientists-to-share-their-data-and-code-and-what-could-be-done-to-overcome-them}
+
+Open, reproducible, and transparent research (including through the
+sharing of data and code) remains rare in biology. (Gomes et al.~2022;
+Maitner et al.~2024) Though reproducibility and transparency are
+fundamental for science (Maitner et al.~2024), this is deeply worrying
+but also unsurprising, given the widespread perception that science
+faces a reproducibility crisis. (Baker, 2016) Overcoming the barriers
+that scientists face in sharing their data and code will therefore be a
+difficult process but a critical one to advance science for the benefit
+of society.
+
+Gomes et al.~(2022) propose 3 broad types of barriers that prevent
+scientists from sharing their data and code: knowledge barriers, reuse
+concerns, and disincentives.
+
+Knowledge barriers include issues like not knowing how to share
+code/data, not knowing how to capture processes in a way that is
+reproducible, the logistical barrier large datasets present, but also
+insecurity about flaws or imperfections in code. A lack of knowledge on
+constructing reproducible code reduces incentives to re-use code, but
+this barrier can be overcome by sharing resources (with many resources
+made but remain neglected) to teach reproducible coding practices.
+Overcoming insecurity or fear associated with data/code sharing will be
+particularly difficult and will require individuals to shift their
+attitude towards the process of coding, but also attitude changes on the
+level of working groups and institutions.
+
+Reuse concerns include issues like inappropriate use/misinterpretation
+of code, navigating sharing code/data where there are complex ownership
+and rights arrangements, worries over the long-term usability of data in
+its shared form, and the issue of sensitive content (given that some
+biological information can be harness for nefarious purposes, like
+bioterrorism). One way to overcome this is by publishing in repositories
+that allow the adjustment of permissions and access/reuse rights,
+including enabling the prevention of data use for commercial purposes.
+
+Disincentives can also discourage scientists from sharing their code.
+For example, lack of time to complete the upfront steps needed to
+produce and share data/code for reproducible processes, perception that
+there is a lack of benefit, or worries that data will be scooped
+(analyses completed on shared data by another researcher, which the
+original researcher had planned themselves). A greater understanding of
+the incentives that sharing data/code openly provides will be necessary
+to overcome this barrier, such as greater citation rates (Maitner et
+al.~2024) or greater capacity for collaboration with colleagues.
+Incentives can also be provided, such as by rewarding individuals that
+share data within an institution and punishing those that keep it
+hidden.
+
+Overall, to overcome each of these barriers, there will need to be a
+culture change in science, both from the top-down (from journals,
+funding agencies, and research institutions) but also from the bottom-up
+(individual researchers and labs) (Gomes et al.~2022). For example, by
+changing attitudes and by reducing the pressure to publish a huge number
+of papers in top academic journals in a short amount of time, in order
+to receive or maintain funding. Such an atmosphere led to the case of
+once-prolific spider ecologist, Johnathan Pruitt, whose allegedly
+fabricated data was able to go undetected. (Treleaven, 2024) In
+particular, this case shows the need for normalising the expectation of
+transparency from researchers.
+
+Orchestrating this culture change will require considerable and
+widespread effort, both among current researchers and, crucially, by
+providing the next generation of scientists with an education that is
+based on practicing the principles of reproducibility and openness in
+all scientific work. This will be essential to overcome knowledge
+barriers and increase understanding of the incentives associated with
+sharing code, like higher citation rates. (Maitner et al.~2024)
+
+In conclusion, while scientists face barriers in sharing their data and
+code (such as knowledge barriers, reuse concerns, and disincentives),
+overcoming these barriers is possible but such shifts must be
+implemented on a system-wide level to create a scientific culture of
+greater openness and reproducibility to facilitate continued expansion
+of knowledge, for the good of society at large.
+
+\emph{References}
+
+\begin{itemize}
+\item
+  Gomes et al.~(2022), `Why don't we share data and code? Perceived
+  barriers and benefits to public archiving practices', Proceedings of
+  the Royal Society B, Vol. 289, Issue 1987,
+  \hyperref[0]{https://doi.org/10.1098/rspb.2022.1113}
+\item
+  Maitner et al.~(2024), `Code sharing increases citations, but remains
+  uncommon', Ecology and Evolution,
+  \url{https://doi.org/10.1002/ece3.70030}
+\item
+  Trisovic et al.~(2022), `A large-scale study on research code quality
+  and execution', Scientific Data, 9:60,
+  \url{https://doi.org/10.1038/s41597-022-01143-6} ~
+\item
+  Baker (2016), `1,500 scientists lift the lid on reproducibility',
+  Nature, Vol. 533, 452-454, \url{https://doi.org/10.1038/533452a}
+\item
+  Treleaven, (2024), `A Rock-star Researcher Spun a Web of Lies -- and
+  Nearly Got Away with It', The Walrus,
+  \url{https://thewalrus.ca/a-rock-star-researcher-spun-a-web-of-lies-and-nearly-got-away-with-it/}
+\end{itemize}
+
+\end{document}
