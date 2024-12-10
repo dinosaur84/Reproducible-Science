@@ -13,9 +13,7 @@ output:
 
 ### a) Provide your figure here:
 
-```{r packages}
-#| output: true
-
+```{r, echo = FALSE}
 
 # Loading in the packages necessary for Question 1
 library(tidyverse)
@@ -56,7 +54,8 @@ Whitlock & Schluter (2020), 'The analysis of biological data', Third Edition, Ma
 
 **Preliminary step:** Loading in packages necessary for this data pipeline
 
-```{r}
+```{r, echo = TRUE}
+
 # Loading in packages necessary for this analysis
 library(palmerpenguins) # Source of data
 library(tidyverse)
@@ -262,7 +261,7 @@ In conclusion, we find that flipper length is a strong predictor of body mass ac
 
 ### a) My GitHub
 
-*GitHub link:* <https://github.com/dinosaur84/ReproducibleScienceAndFigures>
+*GitHub link:* <https://github.com/dinosaur84/ReproducibleScienceAndFigures/tree/main>
 
 ### b) Share your repo with a partner, download, and try to run their data pipeline.
 
