@@ -3,8 +3,8 @@ title: 'Computer Assignment: Reproducible Science and Figures'
 author: "Candidate 1076523, dinosaur 84"
 date: "2024-12-08"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 # Computer Assignment: Reproducible Science and Figures (Michaelmas Term, 2024)
@@ -264,23 +264,39 @@ In conclusion, we find that **flipper length is a strong predictor of body mass*
 
 ### b) Share your repo with a partner, download, and try to run their data pipeline.
 
-*Partner's GitHub link:*
+*Partner's GitHub link:* <https://github.com/Fungal03/Penguin_Project>
 
 ### c) Reflect on your experience running their code. (300-500 words)
 
--   *What elements of your partner's code helped you to understand and run their data pipeline?*
+*What elements of your partner's code helped you to understand and run their data pipeline?*
 
--   *Did it run? Did you need to fix anything?*
+My partner’s code could be easily understood and run because it had a logical structure, and all necessary packages (and purposes) were indicated. This structure, based on the headings of a scientific paper, made it relatively easy to follow, while there were annotations to make the purpose of elements clear.
 
--   *What suggestions would you make for improving their code to make it more understandable or reproducible, and why?*
+They provided clear graphs and tables that were easy to interpret, and this helped me to understand and run their data pipeline and their analysis. The repository was also well organised and provided all the elements necessary for their pipeline, including a cleaning.R script that detailed the data cleaning process in a manner that was easily reproducible and could be applied to use the dataset for different purposes.
 
--   *If you needed to alter your partner's figure using their code, do you think that would be easy or difficult, and why?*
+*Did it run? Did you need to fix anything?*
+
+The pipeline ran well - nothing needed to be fixed.
+
+*What suggestions would you make for improving their code to make it more understandable or reproducible, and why?*
+
+I have a number of suggestions to make their code more reproducible and understandable:
+
+-   They could have added a formatted title at the top of their .Rmd (but below the yaml) and included a note on the purpose of the script. This would make the script more understandable and reduce the risk of confusing the script with another should multiple be open simultaneously.
+
+-   They could have used a pipeline for the data cleaning process instead of a series of separate functions. This would help make the code more efficient and easier to understand by combining each of the functions used to clean the data.
+
+-   To improve the reproducibility of their code, my partner could have used renv to create a reproducible environment and enable the project library to be restored from a lock file. This is helpful for reproducibility because it goes beyond simply providing package names (though this is very helpful) but it goes further and records the exact versions of packages used and installs the versions used in the original analysis. Given that packages are frequently updated and sometimes updates may affect functionality, this is important because without using the same version of a package, our ability to replicate the analysis could be impaired.
+
+*If you needed to alter your partner's figure using their code, do you think that would be easy or difficult, and why?*
+
+I think it would be easy because the code is laid out well. Separate lines are mostly used to denote new elements of the plots and annotations are provided, making each of the figures easy to edit. This could have been further facilitate by using a new line for new functions within the plot in each case.  
 
 ### d) Reflect on your own code based on your experience with your partner's code and their review of yours. (300-500 words)
 
--   *What improvements did they suggest, and do you agree?*
+*What improvements did they suggest, and do you agree?*
 
--   *What did you learn about writing code for other people?*
+*What did you learn about writing code for other people?*
 
 ### e) What are the main barriers for scientists to share their data and code, and what could be done to overcome them?
 
