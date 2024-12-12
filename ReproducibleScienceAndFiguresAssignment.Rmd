@@ -3,8 +3,8 @@ title: 'Computer Assignment: Reproducible Science and Figures'
 author: "Candidate 1076523, dinosaur 84"
 date: "2024-12-08"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 # Computer Assignment: Reproducible Science and Figures (Michaelmas Term, 2024)

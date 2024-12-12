@@ -756,31 +756,94 @@ data’, Third Edition, Macmillan International Higher Education.</p></li>
 <div id="b-share-your-repo-with-a-partner-download-and-try-to-run-their-data-pipeline." class="section level3">
 <h3>b) Share your repo with a partner, download, and try to run their
 data pipeline.</h3>
-<p><em>Partner’s GitHub link:</em></p>
+<p><em>Partner’s GitHub link:</em> <a href="https://github.com/Fungal03/Penguin_Project" class="uri">https://github.com/Fungal03/Penguin_Project</a></p>
 </div>
 <div id="c-reflect-on-your-experience-running-their-code.-300-500-words" class="section level3">
 <h3>c) Reflect on your experience running their code. (300-500
 words)</h3>
+<p><u><em>What elements of your partner’s code helped you to understand
+and run their data pipeline?</em></u></p>
+<p>My partner’s code could be easily understood and run because it had a
+logical structure, and all necessary packages (and purposes) were
+indicated. This structure, based on the headings of a scientific paper,
+made it relatively easy to follow, while there were annotations to make
+the purpose of elements clear.</p>
+<p>They provided clear graphs and tables that were easy to interpret,
+and this helped me to understand and run their data pipeline and their
+analysis. The repository was also well organised and provided all the
+elements necessary for their pipeline, including a cleaning.R script
+that detailed the data cleaning process in a manner that was easily
+reproducible and could be applied to use the dataset for different
+purposes.</p>
+<p><u><em>Did it run? Did you need to fix anything?</em></u></p>
+<p>The pipeline ran well - nothing needed to be fixed.</p>
+<p><u><em>What suggestions would you make for improving their code to
+make it more understandable or reproducible, and why?</em></u></p>
+<p>I have a number of suggestions to make their code more reproducible
+and understandable:</p>
 <ul>
-<li><p><em>What elements of your partner’s code helped you to understand
-and run their data pipeline?</em></p></li>
-<li><p><em>Did it run? Did you need to fix anything?</em></p></li>
-<li><p><em>What suggestions would you make for improving their code to
-make it more understandable or reproducible, and why?</em></p></li>
-<li><p><em>If you needed to alter your partner’s figure using their
-code, do you think that would be easy or difficult, and
-why?</em></p></li>
+<li><p>They could have added a formatted title at the top of their .Rmd
+(but below the yaml) and included a note on the purpose of the script.
+This would make the script more understandable and reduce the risk of
+confusing the script with another should multiple be open
+simultaneously.</p></li>
+<li><p>They could have used a pipeline for the data cleaning process
+instead of a series of separate functions. This would help make the code
+more efficient and easier to understand by combining each of the
+functions used to clean the data.</p></li>
+<li><p>To improve the reproducibility of their code, my partner could
+have used renv to create a reproducible environment and enable the
+project library to be restored from a lock file. This is helpful for
+reproducibility because it goes beyond simply providing package names
+(though this is very helpful) but it goes further and records the exact
+versions of packages used and installs the versions used in the original
+analysis. Given that packages are frequently updated and sometimes
+updates may affect functionality, this is important because without
+using the same version of a package, our ability to replicate the
+analysis could be impaired.</p></li>
 </ul>
+<p><u><em>If you needed to alter your partner’s figure using their code,
+do you think that would be easy or difficult, and why?</em></u></p>
+<p>I think it would be easy because the code is laid out well. Separate
+lines are mostly used to denote new elements of the plots and
+annotations are provided, making each of the figures easy to edit. This
+could have been further facilitated by using a new line for new
+functions within the plot in each case.  </p>
 </div>
 <div id="d-reflect-on-your-own-code-based-on-your-experience-with-your-partners-code-and-their-review-of-yours.-300-500-words" class="section level3">
 <h3>d) Reflect on your own code based on your experience with your
 partner’s code and their review of yours. (300-500 words)</h3>
-<ul>
-<li><p><em>What improvements did they suggest, and do you
-agree?</em></p></li>
-<li><p><em>What did you learn about writing code for other
-people?</em></p></li>
-</ul>
+<div id="what-improvements-did-they-suggest-and-do-you-agree" class="section level4">
+<h4>What improvements did they suggest, and do you agree?</h4>
+<p>My partner suggested that I explain how the diagnostic plots in my
+analysis inform the suitability of the data for the linear model. They
+suggested I supplement my discussion by including this because of the
+potential for confusion should anyone attempt to replicate this
+analysis. To implement this suggestion, I would add a section to my
+discussion that describes the output of the four plots, how they inform
+the reader on whether assumptions of the analysis are met, and an
+evaluation of their output. I agree with their suggestion and think it
+would be helpful to increase understanding of the analysis.</p>
+<p>They also suggested that I should annotate the function of all the
+packages the analysis loads in to increase clarity for the reader. I
+agree that this could make things easier, since currently only some of
+the packages are labelled (and none for question 1) and this would be
+important for greater consistency within the analysis.</p>
+</div>
+<div id="what-did-you-learn-about-writing-code-for-other-people" class="section level4">
+<h4>What did you learn about writing code for other people?</h4>
+<p>This assignment demonstrated the practicalities of writing code not
+just for myself, but for other people to use and understand in practice.
+It encouraged me to stop and think about how to lay out and annotate my
+code in the best way possible, not just so others could run it but in
+case the methods I used were to be applied to analyse another dataset or
+different aspects of the same dataset.</p>
+<p>I found this helpful in learning to practice reproducibility - what
+seems obvious may not be to others or even to myself in a couple of
+weeks. In addition, I was pleased to learn new ways to improve from my
+partner in the process and would put these improvements in place to
+increase the readability and reproducibility of my analysis.</p>
+</div>
 </div>
 <div id="e-what-are-the-main-barriers-for-scientists-to-share-their-data-and-code-and-what-could-be-done-to-overcome-them" class="section level3">
 <h3>e) What are the main barriers for scientists to share their data and
